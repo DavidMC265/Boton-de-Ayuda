@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+        <nav class="navbar navbar-expand-sm navbar-light bg-danger">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">primary</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
+                    aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarID">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+<h1>Welcome back!</h1>
+<div class="container mx-a">
+    <div class="row row-cols-2"> <!-- Changed the number of columns to 2 -->
+        <div class="card col" style="width:18rem;">
+          <canvas id="barChart" width="400" height="400"></canvas> <!-- Changed id to "barChart" -->
+          <div class="card-body">
+            <h5 class="card-title">Estados de Llamadas</h5>
+            
+          </div>
+        </div>
+        <div class="card col" style="width:18rem;"> <!-- New card for line chart -->
+          <canvas id="lineChart" width="400" height="400"></canvas> <!-- New canvas for line chart -->
+          <div class="card-body">
+            <h5 class="card-title">Mi actividad de llamadas</h5>
+            
+          </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  // JavaScript code to generate bar chart using Chart.js
+  var ctxBar = document.getElementById('barChart').getContext('2d');
+  var barChart = new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+      labels: ['Exitosas', 'Fallidas'],
+      datasets: [{
+        label: 'Numero de llamadas',
+        data: [19, 7],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // JavaScript code to generate line chart using Chart.js
+  var ctxLine = document.getElementById('lineChart').getContext('2d');
+  var lineChart = new Chart(ctxLine, {
+    type: 'line',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May'],
+      datasets: [{
+        label: 'Llamadas por mes',
+        data: [2, 3, 4, 2, 1],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>
+
