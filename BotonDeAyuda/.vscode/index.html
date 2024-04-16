@@ -33,6 +33,12 @@
       margin-left: 20px;
       display: inline-block;
     }
+    .search-bar {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   </style>
 </head>
 <body>
@@ -96,7 +102,28 @@
             <h5 class="card-title">Mi actividad de llamadas</h5>
           </div>
         </div>
+        <!-- Additional blocks without graphs -->
+        <div class="card col" style="width:18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Tiempo del boton estando activo:</h5>
+            <p class="card-text">256 mins</p>
+          </div>
+        </div>
+        <div class="card col" style="width:18rem;">
+          <div class="card-body">
+            <h5 class="card-title">80 Lps</h5>
+            <img src="https://emojicdn.elk.sh/❤️" alt="Heart Emoji" width="30" height="30">
+          </div>
+        </div>
     </div>
+</div>
+
+<!-- Search bar -->
+<div class="search-bar">
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
 </div>
 
 <script>
@@ -155,12 +182,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-  
-
-
