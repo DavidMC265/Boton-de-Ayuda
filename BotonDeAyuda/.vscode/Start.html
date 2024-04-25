@@ -8,60 +8,69 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script> <!-- D3.js library -->
   <style>
-    /* Your CSS styles */
+    /* Center the form and make it smaller */
+    .container {
+      max-width: 400px; /* Set maximum width */
+      margin: 0 auto; /* Center horizontally */
+      padding-top: 50px; /* Add some space from the top */
+    }
+
+    /* Center text fields and labels */
+    .form-control,
+    .form-label {
+      text-align: center;
+    }
+
+    /* Center the button */
+    .btn-primary {
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-light bg-danger">
     <!-- Navbar code -->
 </nav>
-<h1>Welcome back!</h1>
+<h1 class="text-center">Por favor complete este formulario para comenzar</h1>
 
 <!-- Form for user input -->
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <form id="userInfoForm">
-        <div class="mb-3">
-          <label for="userName" class="form-label">Name</label>
-          <input type="text" class="form-control" id="userName" required>
-        </div>
-        <div class="mb-3">
-          <label for="contact1Name" class="form-label">Priority Contact 1 Name</label>
-          <input type="text" class="form-control" id="contact1Name" required>
-        </div>
-        <div class="mb-3">
-          <label for="contact1Phone" class="form-label">Priority Contact 1 Phone</label>
-          <input type="tel" class="form-control" id="contact1Phone" required>
-        </div>
-        <div class="mb-3">
-          <label for="contact2Name" class="form-label">Priority Contact 2 Name</label>
-          <input type="text" class="form-control" id="contact2Name" required>
-        </div>
-        <div class="mb-3">
-          <label for="contact2Phone" class="form-label">Priority Contact 2 Phone</label>
-          <input type="tel" class="form-control" id="contact2Phone" required>
-        </div>
-        <div class="mb-3">
-          <label for="contact3Name" class="form-label">Priority Contact 3 Name</label>
-          <input type="text" class="form-control" id="contact3Name" required>
-        </div>
-        <div class="mb-3">
-          <label for="contact3Phone" class="form-label">Priority Contact 3 Phone</label>
-          <input type="tel" class="form-control" id="contact3Phone" required>
-        </div>
-        <div class="mb-3">
-          <label for="userLocation" class="form-label">Location</label>
-          <input type="text" class="form-control" id="userLocation" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+  <form id="userInfoForm">
+    <div class="mb-3">
+      <label for="userName" class="form-label">Nombre Completo</label>
+      <input type="text" class="form-control" id="userName" required>
     </div>
-  </div>
-</div>
-
-<div class="container mx-a">
-    <!-- Your existing dashboard code -->
+    <div class="mb-3">
+      <label for="contact1Name" class="form-label">Contacto de Prioridad 1 (Nombre completo)</label>
+      <input type="text" class="form-control" id="contact1Name" required>
+    </div>
+    <div class="mb-3">
+      <label for="contact1Phone" class="form-label">Contacto de Prioridad 1 (Numero de Telefono)(+52)</label>
+      <input type="tel" class="form-control" id="contact1Phone" required>
+    </div>
+    <div class="mb-3">
+      <label for="contact2Name" class="form-label">Contacto de Prioridad 2 (Nombre completo)</label>
+      <input type="text" class="form-control" id="contact2Name" required>
+    </div>
+    <div class="mb-3">
+      <label for="contact2Phone" class="form-label">Contacto de Prioridad 2 (Numero de Telefono)(+52)</label>
+      <input type="tel" class="form-control" id="contact2Phone" required>
+    </div>
+    <div class="mb-3">
+      <label for="contact3Name" class="form-label">Contacto de Prioridad 3 (Nombre completo)</label>
+      <input type="text" class="form-control" id="contact3Name" required>
+    </div>
+    <div class="mb-3">
+      <label for="contact3Phone" class="form-label">Contacto de Prioridad 3 (Numero de Telefono)(+52)</label>
+      <input type="tel" class="form-control" id="contact3Phone" required>
+    </div>
+    <div class="mb-3">
+      <label for="userLocation" class="form-label">Ubicacion</label>
+      <input type="text" class="form-control" id="userLocation" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Siguiente</button>
+  </form>
 </div>
 
 <script>
@@ -70,35 +79,19 @@
     event.preventDefault(); // Prevent form submission
     // Get user inputs
     var userName = document.getElementById('userName').value;
-    var contact1Name = document.getElementById('contact1Name').value;
-    var contact1Phone = document.getElementById('contact1Phone').value;
-    var contact2Name = document.getElementById('contact2Name').value;
-    var contact2Phone = document.getElementById('contact2Phone').value;
-    var contact3Name = document.getElementById('contact3Name').value;
-    var contact3Phone = document.getElementById('contact3Phone').value;
-    var userLocation = document.getElementById('userLocation').value;
-    
+    // Get other user inputs
+
     // Update emergency contacts in the dashboard
-    document.querySelectorAll('.emergency-box .contact-details h4')[0].textContent = "Contact 1: " + contact1Name;
-    document.querySelectorAll('.emergency-box .contact-details p')[0].textContent = "Name: " + contact1Name;
-    document.querySelectorAll('.emergency-box .contact-details p')[1].textContent = "Phone: " + contact1Phone;
-    
-    document.querySelectorAll('.emergency-box .contact-details h4')[1].textContent = "Contact 2: " + contact2Name;
-    document.querySelectorAll('.emergency-box .contact-details p')[2].textContent = "Name: " + contact2Name;
-    document.querySelectorAll('.emergency-box .contact-details p')[3].textContent = "Phone: " + contact2Phone;
-    
-    document.querySelectorAll('.emergency-box .contact-details h4')[2].textContent = "Contact 3: " + contact3Name;
-    document.querySelectorAll('.emergency-box .contact-details p')[4].textContent = "Name: " + contact3Name;
-    document.querySelectorAll('.emergency-box .contact-details p')[5].textContent = "Phone: " + contact3Phone;
-    
     // Update user location in the dashboard
-    document.querySelector('.card-title:contains("Distancia al hospital más cercano") + .card-text').textContent = userLocation;
+    
+    // Redirect to the dashboard page
+    window.location.href = 'index.html'; // Change 'index.html' to the correct path if necessary
     
     // Optionally, you can send this data to a server for storage or further processing
-    
-    alert("Form submitted successfully!");
   });
 </script>
 </body>
 </html>
+
+
 
