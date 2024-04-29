@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Site</title>
+  <title>Questionnaire</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script> <!-- D3.js library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- D3.js library -->
   <style>
     /* Center the form and make it smaller */
     .container {
@@ -74,24 +75,35 @@
 </div>
 
 <script>
-  // JavaScript code for handling form submission
   document.getElementById('userInfoForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
+
     // Get user inputs
     var userName = document.getElementById('userName').value;
-    // Get other user inputs
+    var contact1Name = document.getElementById('contact1Name').value;
+    var contact1Phone = document.getElementById('contact1Phone').value;
+    var contact2Name = document.getElementById('contact2Name').value;
+    var contact2Phone = document.getElementById('contact2Phone').value;
+    var contact3Name = document.getElementById('contact3Name').value;
+    var contact3Phone = document.getElementById('contact3Phone').value;
+    var userLocation = document.getElementById('userLocation').value;
 
-    // Update emergency contacts in the dashboard
-    // Update user location in the dashboard
-    
-    // Redirect to the dashboard page
-    window.location.href = 'index.html'; // Change 'index.html' to the correct path if necessary
-    
-    // Optionally, you can send this data to a server for storage or further processing
+    // Redirect to the dashboard page with user inputs as query parameters
+    window.location.href = 'index.html' +
+      '?userName=' + encodeURIComponent(userName) +
+      '&contact1Name=' + encodeURIComponent(contact1Name) +
+      '&contact1Phone=' + encodeURIComponent(contact1Phone) +
+      '&contact2Name=' + encodeURIComponent(contact2Name) +
+      '&contact2Phone=' + encodeURIComponent(contact2Phone) +
+      '&contact3Name=' + encodeURIComponent(contact3Name) +
+      '&contact3Phone=' + encodeURIComponent(contact3Phone) +
+      '&userLocation=' + encodeURIComponent(userLocation);
   });
 </script>
+
 </body>
 </html>
+
 
 
 

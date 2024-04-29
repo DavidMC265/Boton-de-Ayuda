@@ -3,114 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Site</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script> <!-- D3.js library -->
-  <style>
-    .emergency-box {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 20px;
-      width: 300px;
-      margin: 20px auto;
-    }
-    .contact {
-      margin-bottom: 10px;
-      position: relative;
-    }
-    .ball {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: red;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: -30px;
-    }
-    .contact-details {
-      margin-left: 20px;
-      display: inline-block;
-    }
-    .search-bar {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  </style>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-sm navbar-light bg-danger">
-    <div class="container-fluid">
-        <!-- Changed the navbar brand to "primary" -->
-        <a class="navbar-brand" href="#">primary</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-            aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarID">
-            <div class="navbar-nav">
-                <!-- Changed the navigation links -->
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">Account</a>
-                <a class="nav-link" href="#">Settings</a>
-                <a class="nav-link" href="#">Exit</a>
-                <a class="nav-link" href="#">Notifications</a>
-            </div>
+  <div class="container-fluid">
+    <!-- Changed the navbar brand to "primary" -->
+    <a class="navbar-brand" href="#">primary</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
+        aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarID">
+        <div class="navbar-nav">
+            <!-- Changed the navigation links -->
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Account</a>
+            <a class="nav-link" href="#">Settings</a>
+            <a class="nav-link" href="#">Exit</a>
+            <a class="nav-link" href="#">Notifications</a>
         </div>
     </div>
+</div>
 </nav>
-<h1>Welcome back!</h1>
+
+<!-- Search bar -->
+<div class="search-bar text-center">
+  <form class="d-inline-flex">
+    <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success btn-sm" type="submit">Buscar</button>
+  </form>
+</div>
+
+
+
+<h1>Bienvenido!</h1>
 <div class="container mx-a">
-    <div class="row row-cols-3"> <!-- Changed the number of columns to 3 -->
+    <div class="row row-cols-3">
         <div class="card col" style="width:18rem;">
           <!-- Emergency contacts box -->
-          <div class="emergency-box">
-            <div class="contact">
-              <div class="ball"></div>
-              <div class="contact-details">
-                <h4>Contact 1</h4>
-                <p>Name: John Doe</p>
-                <p>Phone: +1234567890</p>
-              </div>
-            </div>
-            <div class="contact">
-              <div class="ball"></div>
-              <div class="contact-details">
-                <h4>Contact 2</h4>
-                <p>Name: Jane Smith</p>
-                <p>Phone: +9876543210</p>
-              </div>
-            </div>
-            <div class="contact">
-              <div class="ball"></div>
-              <div class="contact-details">
-                <h4>Contact 3</h4>
-                <p>Name: Alice Johnson</p>
-                <p>Phone: +2468101214</p>
-              </div>
-            </div>
+          <div class="emergency-box" id="emergencyBox">
+            <!-- Contact details will be dynamically added here -->
           </div>
           <!-- End of emergency contacts box -->
         </div>
         <div class="card col" style="width:18rem;">
-          <canvas id="barChart" width="400" height="400"></canvas> <!-- Changed id to "barChart" -->
+          <canvas id="barChart" width="400" height="400"></canvas>
           <div class="card-body">
-            <h5 class="card-title">Estados de Llamadas</h5>
+            <h5 class="card-title">Estatus de Llamadas</h5>
           </div>
         </div>
-        <div class="card col" style="width:18rem;"> <!-- New card for line chart -->
-          <canvas id="lineChart" width="400" height="400"></canvas> <!-- New canvas for line chart -->
+        <div class="card col" style="width:18rem;">
+          <canvas id="lineChart" width="400" height="400"></canvas>
           <div class="card-body">
-            <h5 class="card-title">Mi actividad de llamadas</h5>
+            <h5 class="card-title">Actividad de Llamadas</h5>
           </div>
         </div>
-        <!-- Additional blocks without graphs -->
         <div class="card col" style="width:18rem;">
           <div class="card-body">
-            <h5 class="card-title">Tiempo del boton estando activo:</h5>
+            <h5 class="card-title">Tiempo del boton activo:</h5>
             <p class="card-text">256 mins</p>
           </div>
         </div>
@@ -120,23 +74,66 @@
             <img src="https://emojicdn.elk.sh/❤️" alt="Heart Emoji" width="30" height="30">
           </div>
         </div>
-        <!-- New block: Distancia al hospital mas cercano -->
         <div class="card col" style="width:18rem;">
           <div class="card-body">
-            <h5 class="card-title">Distancia al hospital más cercano:</h5>
+            <h5 class="card-title">Distancia al Hospital mas cercano:</h5>
             <p class="card-text">3kms</p>
           </div>
         </div>
     </div>
 </div>
 
-<!-- Search bar -->
-<div class="search-bar">
-  <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-  </form>
-</div>
+
+<script>
+  function getParameterByName(name) {
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(window.location.href);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  var userName = getParameterByName('userName');
+  var contact1Name = getParameterByName('contact1Name');
+  var contact1Phone = getParameterByName('contact1Phone');
+  var contact2Name = getParameterByName('contact2Name');
+  var contact2Phone = getParameterByName('contact2Phone');
+  var contact3Name = getParameterByName('contact3Name');
+  var contact3Phone = getParameterByName('contact3Phone');
+  var userLocation = getParameterByName('userLocation');
+
+  var emergencyBox = document.getElementById('emergencyBox');
+emergencyBox.innerHTML = `
+  <div class="emergency-title">
+    <h3>Contactos de Emergencia</h3>
+  </div>
+  <div class="contact">
+    <div class="ball"></div>
+    <div class="contact-details">
+      <h4>Contact 1</h4>
+      <p>Name: ${contact1Name}</p>
+      <p>Phone: ${contact1Phone}</p>
+    </div>
+  </div>
+  <div class="contact">
+    <div class="ball"></div>
+    <div class="contact-details">
+      <h4>Contact 2</h4>
+      <p>Name: ${contact2Name}</p>
+      <p>Phone: ${contact2Phone}</p>
+    </div>
+  </div>
+  <div class="contact">
+    <div class="ball"></div>
+    <div class="contact-details">
+      <h4>Contact 3</h4>
+      <p>Name: ${contact3Name}</p>
+      <p>Phone: ${contact3Phone}</p>
+    </div>
+  </div>
+`;
+</script>
 
 <script>
   // JavaScript code to generate bar chart using Chart.js
@@ -194,7 +191,5 @@
 </script>
 </body>
 </html>
-
-
 
 
