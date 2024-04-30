@@ -6,30 +6,56 @@
   <title>Dashboard</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Custom styles for sidebar */
+    .sidebar {
+      height: 100%;
+      width: 250px; /* Adjust width as needed */
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #f8f9fa; /* Adjust background color as needed */
+      padding-top: 4rem; /* Adjust top padding to align with navbar */
+    }
+
+    .sidebar a {
+      padding: 10px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #000; /* Adjust text color as needed */
+      display: block;
+    }
+
+    .sidebar a:hover {
+      background-color: #e9ecef; /* Adjust hover background color as needed */
+    }
+
+    .content {
+      margin-left: 250px; /* Adjust margin to match sidebar width */
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm navbar-light bg-danger">
+
+  <!-- Sidebar -->
+<nav class="sidebar bg-danger">
   <div class="container-fluid">
-    <!-- Changed the navbar brand to "primary" -->
-    <a class="navbar-brand" href="#">primary</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
-        aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarID">
-        <div class="navbar-nav">
-            <!-- Changed the navigation links -->
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Account</a>
-            <a class="nav-link" href="#">Settings</a>
-            <a class="nav-link" href="#">Exit</a>
-            <a class="nav-link" href="#">Notifications</a>
-        </div>
+    <a class="navbar-brand text-white" href="#">Dashboard</a>
+    <div class="navbar-nav">
+      <a class="nav-link active" aria-current="page" href="#">Home</a>
+      <a class="nav-link" href="#">Account</a>
+      <a class="nav-link" href="#">Settings</a>
+      <a class="nav-link" href="#">Exit</a>
+      <a class="nav-link" href="#">Notifications</a>
     </div>
-</div>
+  </div>
 </nav>
 
+
+<!-- Content -->
+<div class="content">
 <!-- Search bar -->
 <div class="search-bar text-center">
   <form class="d-inline-flex">
