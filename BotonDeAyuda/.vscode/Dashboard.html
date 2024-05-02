@@ -34,6 +34,36 @@
       margin-left: 250px; /* Adjust margin to match sidebar width */
       padding: 20px;
     }
+
+    /* Custom styles for notifications */
+    .notifications {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100%;
+      background-color: #ffffff;
+      box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .notifications h2 {
+      margin-bottom: 20px;
+    }
+
+    .notification {
+      margin-bottom: 20px;
+    }
+
+    .notification h3 {
+      margin-bottom: 5px;
+    }
+
+    .notification p {
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
@@ -46,9 +76,7 @@
     <div class="navbar-nav">
       <a class="nav-link active" aria-current="page" href="#">Home</a>
       <a class="nav-link" href="#">Account</a>
-      <a class="nav-link" href="#">Settings</a>
       <a class="nav-link" href="#">Exit</a>
-      <a class="nav-link" href="#">Notifications</a>
     </div>
   </div>
 </nav>
@@ -56,19 +84,18 @@
 
 <!-- Content -->
 <div class="content">
-<!-- Search bar -->
-<div class="search-bar text-center">
-  <form class="d-inline-flex">
-    <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success btn-sm" type="submit">Buscar</button>
-  </form>
-</div>
+  <!-- Search bar -->
+  <div class="search-bar text-center">
+    <form class="d-inline-flex">
+      <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success btn-sm" type="submit">Buscar</button>
+    </form>
+  </div>
 
-
-<div class="container mx-a pl-5"> <!-- Added pl-5 class for left padding -->
-<h1>Bienvenido!</h1>
-<div class="container mx-a">
-    <div class="row row-cols-3">
+  <div class="container mx-a pl-5"> <!-- Added pl-5 class for left padding -->
+    <h1>Bienvenido!</h1>
+    <div class="container mx-a">
+      <div class="row row-cols-3">
         <div class="card col ml-5" style="width:18rem;"> <!-- Adjusted ml-5 class for left margin -->
           <!-- Emergency contacts box -->
           <div class="emergency-box" id="emergencyBox">
@@ -106,11 +133,20 @@
             <p class="card-text">3kms</p>
           </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-
-
+<!-- Notifications -->
+<div class="notifications">
+  <h2>Notificaciones</h2>
+  <div class="notification">
+    <h3>No hay notificaciones nuevas</h3>
+    <p>Vuelve a consultar mas tarde</p>
+  </div>
+  <!-- Add more notifications here -->
+</div>
 
 <script>
   function getParameterByName(name) {
@@ -132,35 +168,35 @@
   var userLocation = getParameterByName('userLocation');
 
   var emergencyBox = document.getElementById('emergencyBox');
-emergencyBox.innerHTML = `
-  <div class="emergency-title">
-    <h3>Contactos de Emergencia</h3>
-  </div>
-  <div class="contact">
-    <div class="ball"></div>
-    <div class="contact-details">
-      <h4>Contact 1</h4>
-      <p>Name: ${contact1Name}</p>
-      <p>Phone: ${contact1Phone}</p>
+  emergencyBox.innerHTML = `
+    <div class="emergency-title">
+      <h3>Contactos de Emergencia</h3>
     </div>
-  </div>
-  <div class="contact">
-    <div class="ball"></div>
-    <div class="contact-details">
-      <h4>Contact 2</h4>
-      <p>Name: ${contact2Name}</p>
-      <p>Phone: ${contact2Phone}</p>
+    <div class="contact">
+      <div class="ball"></div>
+      <div class="contact-details">
+        <h4>Contact 1</h4>
+        <p>Name: ${contact1Name}</p>
+        <p>Phone: ${contact1Phone}</p>
+      </div>
     </div>
-  </div>
-  <div class="contact">
-    <div class="ball"></div>
-    <div class="contact-details">
-      <h4>Contact 3</h4>
-      <p>Name: ${contact3Name}</p>
-      <p>Phone: ${contact3Phone}</p>
+    <div class="contact">
+      <div class="ball"></div>
+      <div class="contact-details">
+        <h4>Contact 2</h4>
+        <p>Name: ${contact2Name}</p>
+        <p>Phone: ${contact2Phone}</p>
+      </div>
     </div>
-  </div>
-`;
+    <div class="contact">
+      <div class="ball"></div>
+      <div class="contact-details">
+        <h4>Contact 3</h4>
+        <p>Name: ${contact3Name}</p>
+        <p>Phone: ${contact3Phone}</p>
+      </div>
+    </div>
+  `;
 </script>
 
 <script>
