@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Rate Display</title>
+</head>
+<body>
+
+<h5 class="card-title" id="heartRateDisplay">Loading...</h5>
+
+<!-- Include Firebase JavaScript SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"></script>
+<script>
+  // Your Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBOQam7Y8H8CrbFja_zsvJDcPXsVQ9geg8",
+    authDomain: "botondeay.firebaseapp.com",
+    databaseURL: "https://botondeay-default-rtdb.firebaseio.com",
+    projectId: "botondeay",
+    storageBucket: "botondeay.appspot.com",
+    messagingSenderId: "926487615778",
+    appId: "1:926487615778:web:3ad3b10b8883be21d02d7b"
+  };
+
+  // Initialize Firebase
+  const firebaseApp = firebase.initializeApp(firebaseConfig);
+  const database = firebaseApp.database();
+
+  // Get a reference to the database
+  const heartRateRef = database.ref('users/9CE5F1A5-E14D-4AA0-BE20-4F847EDA6BF2/heart_rate');
+
+  // Function to update heart rate display
+  function updateHeartRateDisplay(heartRate) {
+    const heartRateDisplay = document.getElementById('heartRateDisplay');
+    heartRateDisplay.textContent = `${heartRate} Lps`;
+  }
+
+  // Listen for changes in heart rate
+  heartRateRef.on('value', (snapshot) => {
+    const heartRate = snapshot.val();
+    // Update heart rate display
+    updateHeartRateDisplay(heartRate);
+  });
+</script>
+
+</body>
+</html>
+
