@@ -32,7 +32,7 @@
 
     .content {
       margin-left: 250px; /* Adjust margin to match sidebar width */
-      padding: 20px;
+      padding: 80px 20px 20px 20px;
     }
 
     /* Custom styles for notifications */
@@ -64,6 +64,7 @@
     .notification p {
       margin-bottom: 5px;
     }
+
   </style>
 </head>
 <body>
@@ -93,7 +94,7 @@
   </div>
 
   <div class="container mx-a pl-5"> <!-- Added pl-5 class for left padding -->
-    <h1>Bienvenido!</h1>
+    <h1 id="welcomeMessage" style="margin-top: 20px;">Bienvenido!</h1>
     <div class="container mx-a">
       <div class="row row-cols-3">
         <div class="card col ml-5" style="width:18rem;"> <!-- Adjusted ml-5 class for left margin -->
@@ -166,6 +167,9 @@
   var contact3Name = getParameterByName('contact3Name');
   var contact3Phone = getParameterByName('contact3Phone');
   var userLocation = getParameterByName('userLocation');
+
+  var welcomeMessage = document.getElementById('welcomeMessage');
+  welcomeMessage.textContent = "Bienvenido " + userName;
 
   var emergencyBox = document.getElementById('emergencyBox');
   emergencyBox.innerHTML = `
@@ -255,5 +259,6 @@
 </script>
 </body>
 </html>
+
 
 
