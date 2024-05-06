@@ -73,15 +73,24 @@
   <!-- Sidebar -->
 <nav class="sidebar bg-danger">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">Dashboard</a>
+    <!-- <a class="navbar-brand text-white" href="#">Dashboard</a> -->
     <div class="navbar-nav">
-      <a class="nav-link active" aria-current="page" href="#">Home</a>
-      <a class="nav-link" href="#">Account</a>
-      <a class="nav-link" href="#">Exit</a>
+      <a class="nav-link active" aria-current="page" href="Dashboard.html">Home</a>
+      <a class="nav-link" href="Account.html">Account</a>
+      <a class="nav-link" href="#" id="exitLink">Exit</a>
     </div>
   </div>
 </nav>
 
+<script>
+  // Add event listener to the "Exit" link
+  document.getElementById("exitLink").addEventListener("click", function(event) {
+    // Prevent default link behavior
+    event.preventDefault();
+    // Close the window
+    window.close();
+  });
+</script>
 
 <!-- Content -->
 <div class="content">
@@ -118,8 +127,8 @@
         </div>
         <div class="card col ml-5" style="width:18rem;"> <!-- Adjusted ml-5 class for left margin -->
           <div class="card-body">
-            <h5 class="card-title">Tiempo del boton activo:</h5>
-            <p class="card-text">256 mins</p>
+            <h5 class="card-title">Gender:</h5>
+            <p class="card-text">Male</p>
           </div>
         </div>
         <div class="card col ml-5" style="width:18rem;"> <!-- Adjusted ml-5 class for left margin -->

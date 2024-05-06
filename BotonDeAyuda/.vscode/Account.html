@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: red; /* Adjusted background color to red */
+            padding-top: 4rem;
+        }
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff; /* Adjusted text color to white */
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #e9ecef;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        #profile-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: lightgray;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em; /* Adjust the font size to make the + symbol bigger */
+        }
+        #profile-info {
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: dodgerblue;
+        }
+        .save-button {
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .save-button:hover {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="sidebar bg-danger">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">Dashboard</a>
+        <a class="nav-link active" aria-current="page" href="Dashboard.html">Home</a>
+        <a class="nav-link" href="Account.html">Account</a>
+        <a class="nav-link" href="#" id="exitLink">Exit</a>
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="content">
+    <div id="profile-icon">+</div>
+    <div id="profile-info">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="David Mayorga" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="text" id="dob" value="1990-01-01" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" value="123-456-7890" required>
+        </div>
+        <button class="save-button" onclick="saveProfile()">Save</button>
+    </div>
+</div>
+
+<script>
+    function saveProfile() {
+        var name = document.getElementById('name').value;
+        var dob = document.getElementById('dob').value;
+        var phone = document.getElementById('phone').value;
+        // You can save the profile data using AJAX or any other method here
+        console.log("Name: " + name);
+        console.log("Date of Birth: " + dob);
+        console.log("Phone Number: " + phone);
+        alert("Profile saved successfully!");
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
